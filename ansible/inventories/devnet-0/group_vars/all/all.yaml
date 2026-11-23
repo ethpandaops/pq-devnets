@@ -506,7 +506,9 @@ pq_keys_files:
   - name: "{{ pq_keys_id }}.xmss"
     record_size: 14696
     sha256: b574d7fad54493b812570682751e9bbc569d9d84c6d4623c7c945d6afd4cc632
-pq_keys_host_files: "{{ pq_keys_files | rejectattr('name', 'search', '\\.bin$') | list }}"
+# Every file, the .bin key list too: clients that load the .xmss cache find their keys' records in
+# it (Lighthouse reads it next to the cache, and Teku needs it or the genesis state)
+pq_keys_host_files: "{{ pq_keys_files }}"
 pq_keys_host_has_validators: "{{ (validator_end | default(0) | int) > (validator_start | default(0) | int) }}"
 pq_vrf_state_path: "{{ pq_keys_container_dir }}/{{ pq_keys_id }}.vrf"
 pq_xmss_cache_path: "{{ pq_keys_container_dir }}/{{ pq_keys_id }}.xmss"
