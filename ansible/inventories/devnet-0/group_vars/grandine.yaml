@@ -1,7 +1,7 @@
 # role: ethpandaops.general.bootstrap
 grandine_extra_github_users: []  # handles not yet in the coredevs registry
 bootstrap_default_user_authorized_keys_github_team_cl: >-
-  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/grandine?format=txt') | select | list)
+  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/grandine?format=txt', errors='ignore') | default([], true) | select | list)
      + grandine_extra_github_users }}
 
 # role: geerlingguy.docker
@@ -50,7 +50,13 @@ grandine_container_command_extra_simple_args:
   - --graffiti={{ inventory_hostname }}
   - --features=LogHttpRequests
 
-grandine_validator_container_volumes:
+grandine_container_validator_volumes:
   - "{{ grandine_validator_datadir }}:/validator-data"
-  - "{{ eth_testnet_config_dir }}:/network-config:ro"
+  - "{{ pq_keys_host_dir }}:{{ pq_keys_container_dir }}:ro"
+grandine_container_validator_args:
+  - --keystore-dir=/validator-data/keys
+  - --keystore-password-file=/validator-data/secrets
+  - --suggested-fee-recipient={{ grandine_validator_fee_recipient }}
+  - --vrf-state-url={{ pq_vrf_state_path }}
+  - --xmss-cache-url={{ pq_xmss_cache_path }}
 grandine_validator_datadir: /data/grandine-validator

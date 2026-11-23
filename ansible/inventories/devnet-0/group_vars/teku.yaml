@@ -2,7 +2,7 @@
 teku_extra_github_users:  # handles not yet in the coredevs registry
   - siladu
 bootstrap_default_user_authorized_keys_github_team_cl: >-
-  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/teku?format=txt') | select | list)
+  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/teku?format=txt', errors='ignore') | default([], true) | select | list)
      + teku_extra_github_users }}
 
 # role: validator_keys
@@ -52,6 +52,15 @@ teku_container_command_extra_simple_args:
   - --metrics-block-timing-tracking-enabled
   - --ignore-weak-subjectivity-period-enabled
   - --rest-api-docs-enabled
+  - --Xpq-leanvm-sidecar-binary=/usr/local/bin/leanvm-sidecar
 teku_validator_container_volumes:
   - "{{ teku_validator_datadir }}:/validator-data"
+  - "{{ pq_keys_host_dir }}:{{ pq_keys_container_dir }}:ro"
+teku_validator_container_args:
+  - --validator-keys=/validator-data/keys:/validator-data/secrets
+  - --validators-proposer-default-fee-recipient={{ teku_validator_fee_recipient }}
+  - --validators-keystore-locking-enabled=false
+  - --Xvalidators-pq-keys-derived-from-bls-key=true
+  - --Xvalidators-pq-vrf-state-url=file://{{ pq_vrf_state_path }}
+  - --Xvalidators-pq-xmss-cache-url={{ pq_xmss_cache_path }}
 teku_validator_datadir: /data/teku-validator

@@ -28,11 +28,16 @@ variable "nodes" {
   description = "List of node definitions for the devnet"
   default = [
     { name = "bootnode", count = 1, cloud = "digitalocean" },
-    { name = "mev-relay", count = 1, cloud = "hetzner", size = "ccx53" },
-    { name = "buildoor-prysm-geth", count = 1, cloud = "hetzner" },
-    { name = "lighthouse-geth", count = 2, cloud = "digitalocean", validator_start = 0, validator_end = 400 },
-    { name = "lighthouse-geth", count = 1, cloud = "hetzner", validator_start = 400, validator_end = 500 },
-    { name = "prysm-nethermind", count = 1, cloud = "hetzner", validator_start = 500, validator_end = 550 },
+    { name = "lighthouse-geth", count = 2, cloud = "digitalocean", validator_start = 0, validator_end = 1250 },
+    { name = "teku-geth", count = 2, cloud = "digitalocean", validator_start = 1250, validator_end = 2500 },
+    { name = "prysm-geth", count = 2, cloud = "digitalocean", validator_start = 2500, validator_end = 3750 },
+    { name = "lodestar-geth", count = 2, cloud = "digitalocean", validator_start = 3750, validator_end = 5000 },
+    { name = "grandine-geth", count = 2, cloud = "digitalocean", validator_start = 5000, validator_end = 6250 },
+    { name = "nimbus-geth", count = 2, cloud = "digitalocean", validator_start = 6250, validator_end = 7500 },
+    { name = "ethlambda-geth", count = 2, cloud = "digitalocean", validator_start = 7500, validator_end = 8750 },
+    { name = "silver-geth", count = 2, cloud = "digitalocean", validator_start = 8750, validator_end = 10000 },
+    { name = "lighthouse-geth", count = 1, cloud = "digitalocean", supernode = true },
+    { name = "prysm-geth", count = 1, cloud = "digitalocean", supernode = true },
   ]
 
   validation {

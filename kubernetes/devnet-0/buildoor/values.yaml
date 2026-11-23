@@ -1,0 +1,29 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/buildoor.yaml.j2
+
+buildoor-overview:
+  fullnameOverride: buildoor-overview
+  image:
+    repository: ethpandaops/buildoor
+    tag: main
+    pullPolicy: IfNotPresent
+
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+  ingress:
+    enabled: true
+    className: traefik-devnets
+    annotations:
+      ethpandaops.io/exposure: "public"
+      traefik.ingress.kubernetes.io/router.middlewares: traefik-devnets-pandamenu@kubernetescrd
+    hosts:
+      - host: buildoor.pq-devnet-0.ethpandaops.io
+        paths:
+          - path: /
+            pathType: Prefix
+
+  hosts:

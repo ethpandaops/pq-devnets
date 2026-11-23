@@ -1,7 +1,7 @@
 # role: ethpandaops.general.bootstrap
 lighthouse_extra_github_users: []  # handles not yet in the coredevs registry
 bootstrap_default_user_authorized_keys_github_team_cl: >-
-  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/lighthouse?format=txt') | select | list)
+  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/lighthouse?format=txt', errors='ignore') | default([], true) | select | list)
      + lighthouse_extra_github_users }}
 
 # role: validator_keys
@@ -32,17 +32,29 @@ lighthouse_container_volumes:
   - "{{ lighthouse_datadir }}:/data"
   - "{{ lighthouse_auth_jwt_path }}:/execution-auth.jwt:ro"
   - "{{ eth_testnet_config_dir }}:/network-config:ro"
+lighthouse_container_entrypoint:
+  - lighthouse-pq-bn
+lighthouse_container_command: >-
+  {{
+    lighthouse_container_command_default[2:] +
+    (lighthouse_container_command_v6 if lighthouse_ipv6_enabled and ansible_default_ipv6.address is defined else []) +
+    (lighthouse_container_supernode_command if lighthouse_supernode_enabled else [])
+  }}
 lighthouse_container_command_extra_args: >-
   {{ lighthouse_container_command_extra_simple_args }}
 lighthouse_container_command_extra_simple_args:
   - --testnet-dir=/network-config
   - --boot-nodes={{ ethereum_cl_bootnodes | join(',') }}
   - --allow-insecure-genesis-sync
+  - --subscribe-all-subnets
 lighthouse_validator_container_volumes:
   - "{{ lighthouse_validator_datadir }}:/validator-data"
   - "{{ eth_testnet_config_dir }}:/network-config:ro"
+  - "{{ pq_keys_host_dir }}:{{ pq_keys_container_dir }}:ro"
 lighthouse_validator_container_command_extra_args:
   - --testnet-dir=/network-config
   - --graffiti={{ inventory_hostname }}
+  - --vrf-state-url={{ pq_vrf_state_path }}
+  - --xmss-cache-url={{ pq_xmss_cache_path }}
 lighthouse_validator_datadir: /data/lighthouse-validator
 lighthouse_container_pull: true

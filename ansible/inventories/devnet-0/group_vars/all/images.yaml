@@ -1,12 +1,14 @@
 default_ethereum_client_images:
   ### Consensus layer clients
-  lighthouse: sigp/lighthouse:latest
-  lodestar: chainsafe/lodestar:latest
-  nimbus: statusim/nimbus-eth2:multiarch-latest
-  prysm: gcr.io/offchainlabs/prysm/beacon-chain:latest
-  prysm_validator: gcr.io/offchainlabs/prysm/validator:latest
-  teku: consensys/teku:latest
-  grandine: ethpandaops/grandine:develop
+  lighthouse: ethpandaops/lighthouse:pq-devnet-0
+  lodestar: ethpandaops/lodestar:pq-devnet-0
+  nimbus: ghcr.io/ethpandaops/nimbus-eth2:pq-devnet-0-leanvm-0.15.0
+  prysm: ethpandaops/prysm-beacon-chain:pq-devnet-0
+  prysm_validator: ethpandaops/prysm-validator:pq-devnet-0
+  teku: ethpandaops/teku:pq-devnet-0
+  grandine: ethpandaops/grandine:pq-devnet-0
+  ethlambda: ethpandaops/ethlambda:pq-devnet-0
+  silver: ethpandaops/silver:pq-devnet-0
   ### Execution layer clients
   besu: hyperledger/besu:latest
   geth: ethereum/client-go:stable
@@ -41,9 +43,9 @@ default_tooling_images:
   eth_fauceth: chainflag/eth-faucet:latest
   blobscan: blossomlabs/blobscan:latest
   blobscan_indexer: blossomlabs/blobscan-indexer:latest
-  dora: ethpandaops/dora:master-latest
+  dora: ethpandaops/dora:pq
   dugtrio: ethpandaops/dugtrio:latest
-  ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:6.2.1
+  ethereum_genesis_generator: ethpandaops/ethereum-genesis-generator:pq
   tracoor: ethpandaops/tracoor:latest
   ncli: status-im/nimbus-eth2:unstable
   lcli: ethpandaops/lighthouse:unstable

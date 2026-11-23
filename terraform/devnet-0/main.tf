@@ -29,7 +29,7 @@ terraform {
     skip_s3_checksum            = true
     region                      = "us-east-1"
     bucket                      = "merge-testnets"
-    key                         = "infrastructure/template-devnet-0/terraform.tfstate"
+    key                         = "infrastructure/pq-devnet-0/terraform.tfstate"
   }
 }
 
@@ -42,7 +42,7 @@ provider "cloudflare" {
 }
 
 provider "hcloud" {
-  token = coalesce(var.template_hcloud_token, join("", [for i in range(64) : "0"]))
+  token = coalesce(var.pq_hcloud_token, join("", [for i in range(64) : "0"]))
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ variable "cloudflare_api_token" {
   description = "Cloudflare API Token"
 }
 
-variable "template_hcloud_token" {
+variable "pq_hcloud_token" {
   type        = string
   sensitive   = true
   default     = ""
@@ -63,11 +63,11 @@ variable "template_hcloud_token" {
 
 variable "ethereum_network" {
   type    = string
-  default = "template-devnet-0"
+  default = "pq-devnet-0"
 }
 
 variable "base_cidr_block" {
-  default = "10.2.0.0/16"
+  default = "10.45.0.0/16"
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////

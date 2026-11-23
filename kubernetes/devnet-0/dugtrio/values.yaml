@@ -1,0 +1,67 @@
+# Ansible managed. Don't change this file manually. Template info: /vendor/collections/ansible_collections/ethpandaops/general/roles/generate_kubernetes_config/templates/dugtrio.yaml.j2
+
+dugtrio:
+  fullnameOverride: dugtrio
+  image:
+    repository: ethpandaops/dugtrio
+    tag: latest
+    pullPolicy: Always
+  resources:
+    requests:
+      cpu: 100m
+      memory: 200Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
+  ingress:
+    enabled: true
+    className: traefik-devnets
+    annotations:
+      ethpandaops.io/exposure: "public"
+      traefik.ingress.kubernetes.io/router.middlewares: traefik-devnets-pandamenu@kubernetescrd
+    hosts:
+      - host: beacon.pq-devnet-0.ethpandaops.io
+        paths:
+          - path: /
+            pathType: Prefix
+
+  dugtrioFrontendTitle: "Dugtrio: pq-devnet-0"
+  dugtrioProxyCount: 2
+  dugtrioProxyBlockedPaths:
+    - "^/teku/v[0-9]+/admin/.*"
+
+  endpoints:
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-bootnode-1.srv.pq-devnet-0.ethpandaops.io
+    name: bootnode-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: ethlambda-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: ethlambda-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: grandine-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: grandine-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: lighthouse-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: lighthouse-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: lodestar-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: lodestar-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: nimbus-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: nimbus-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: prysm-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: prysm-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: silver-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: silver-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-teku-geth-1.srv.pq-devnet-0.ethpandaops.io
+    name: teku-geth-1
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-teku-geth-2.srv.pq-devnet-0.ethpandaops.io
+    name: teku-geth-2

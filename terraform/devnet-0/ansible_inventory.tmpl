@@ -31,7 +31,7 @@ ${host.hostname}
 
 # Consensus client groups
 
-%{ for cl in ["lighthouse", "lodestar", "nimbus", "teku", "prysm", "grandine"] ~}
+%{ for cl in ["lighthouse", "lodestar", "nimbus", "teku", "prysm", "grandine", "ethlambda", "silver"] ~}
 [${cl}:children]
 %{ for gid, group in groups ~}
 %{ if split("-", gid)[0] == "${cl}" ~}

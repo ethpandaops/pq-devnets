@@ -1,0 +1,8 @@
+# role: ethpandaops.general.prysm
+prysm_container_volumes:
+  - "{{ prysm_datadir }}:/data"
+  - "{{ prysm_auth_jwt_path }}:/execution-auth.jwt:ro"
+  - "{{ eth_testnet_config_dir }}:/network-config:ro"
+  - "{{ prysm_datadir }}/pq-timing:/pq-timing"
+prysm_container_command_extra_args: >-
+  {{ prysm_container_command_extra_simple_args + prysm_container_command_extra_bootnode_args + ['--pq-measurement', '--pq-timing-output=/pq-timing'] }}
