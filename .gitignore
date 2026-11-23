@@ -35,3 +35,9 @@ network-configs/**/mnemonics.yaml
 # scripts
 scripts/*.txt
 scripts/*.json
+
+# PQ key files
+**/files/pq_keys/*
+
+# Wrangler cache
+**/.wrangler/

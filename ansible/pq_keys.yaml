@@ -1,0 +1,38 @@
+- hosts: ethereum_node:bootnode
+  become: true
+  tasks:
+    - name: Cut the PQ key records of this host's validators
+      ansible.builtin.command:
+        cmd: >-
+          python3 {{ playbook_dir }}/../scripts/pq-key-slice.py
+          {{ pq_keys_local_dir }}/{{ item.name }} {{ item.record_size }}
+          {{ validator_start }} {{ validator_end }}
+          {{ pq_keys_local_dir }}/hosts/{{ inventory_hostname }}/{{ item.name }}
+      loop: "{{ pq_keys_host_files }}"
+      loop_control:
+        label: "{{ item.name }}"
+      delegate_to: localhost
+      become: false
+      changed_when: false
+      when: pq_keys_host_has_validators
+      tags: [ethereum, pq_keys]
+    - name: Create the PQ key directory
+      ansible.builtin.file:
+        path: "{{ pq_keys_host_dir }}"
+        state: directory
+        mode: "0755"
+      when: pq_keys_host_has_validators
+      tags: [ethereum, pq_keys]
+    - name: Copy the PQ key records of this host's validators
+      ansible.posix.synchronize:
+        src: "{{ pq_keys_local_dir }}/hosts/{{ inventory_hostname }}/"
+        dest: "{{ pq_keys_host_dir }}/"
+        archive: false
+        recursive: true
+        checksum: true
+        perms: true
+        delete: true
+        rsync_opts:
+          - "--sparse"
+      when: pq_keys_host_has_validators
+      tags: [ethereum, pq_keys]

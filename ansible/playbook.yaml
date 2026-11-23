@@ -12,6 +12,8 @@
       when: devnet_name | default('') == 'template'
       tags: always
 
+- import_playbook: pq_keys_fetch.yaml
+
 - hosts: localhost
   roles:
     - role: ethpandaops.general.ethereum_genesis
@@ -91,6 +93,8 @@
       tags: [docker_nginx_proxy]
     - role: ethpandaops.general.generate_basic_auth_nginx
       tags: [docker_nginx_proxy]
+
+- import_playbook: pq_keys.yaml
 
 - hosts: ethereum_node
   become: true

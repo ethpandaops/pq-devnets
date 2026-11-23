@@ -100,27 +100,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        network: ["template-devnet-0"]
+        network: ["pq-devnet-0"]
         el-client: >-
           ${{
             fromJSON(format('[{0}]', inputs.el-client || '
-              "besu",
-              "erigon",
-              "ethrex",
-              "geth",
-              "nethermind",
-              "nimbusel",
-              "reth"
+              "geth"
           '))}}
         cl-client: >-
           ${{
             fromJSON(format('[{0}]', inputs.cl-client || '
               "lighthouse",
-              "teku",
-              "prysm",
               "nimbus",
-              "lodestar",
-              "grandine"
+              "lodestar"
           '))}}
         cl-nodetype: >-
           ${{

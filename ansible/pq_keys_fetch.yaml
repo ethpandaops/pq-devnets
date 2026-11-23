@@ -1,0 +1,38 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create the local PQ key directory
+      ansible.builtin.file:
+        path: "{{ pq_keys_local_dir }}"
+        state: directory
+        mode: "0700"
+      tags: [ethereum_genesis, ethereum, pq_keys]
+    - name: Fetch the PQ key files from the private R2 bucket
+      ansible.builtin.command:
+        cmd: >-
+          npx -y wrangler@4 r2 object get
+          {{ pq_keys_bucket }}/{{ pq_keys_prefix }}/{{ item.name }}
+          --file {{ pq_keys_local_dir }}/{{ item.name }} --remote
+        creates: "{{ pq_keys_local_dir }}/{{ item.name }}"
+      loop: "{{ pq_keys_files }}"
+      loop_control:
+        label: "{{ item.name }}"
+      tags: [ethereum_genesis, ethereum, pq_keys]
+    - name: Read the checksums of the PQ key files
+      ansible.builtin.stat:
+        path: "{{ pq_keys_local_dir }}/{{ item.name }}"
+        checksum_algorithm: sha256
+      loop: "{{ pq_keys_files }}"
+      loop_control:
+        label: "{{ item.name }}"
+      register: pq_keys_stat
+      tags: [ethereum_genesis, ethereum, pq_keys]
+    - name: Check the PQ key files against their checksums
+      ansible.builtin.assert:
+        that: item.stat.checksum == item.item.sha256
+        fail_msg: "{{ item.item.name }} does not match its checksum, delete it and run again"
+        quiet: true
+      loop: "{{ pq_keys_stat.results }}"
+      loop_control:
+        label: "{{ item.item.name }}"
+      tags: [ethereum_genesis, ethereum, pq_keys]
