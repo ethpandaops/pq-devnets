@@ -2,7 +2,7 @@ default_ethereum_client_images:
   ### Consensus layer clients
   lighthouse: ethpandaops/lighthouse:pq-devnet-0
   lodestar: ethpandaops/lodestar:pq-devnet-0
-  nimbus: ghcr.io/ethpandaops/nimbus-eth2:pq-devnet-0-leanvm-0.15.0
+  nimbus: ghcr.io/ethpandaops/nimbus-eth2:pq-devnet-0-2dabc06-fix
   prysm: ethpandaops/prysm-beacon-chain:pq-devnet-0
   prysm_validator: ethpandaops/prysm-validator:pq-devnet-0
   teku: ethpandaops/teku:pq-devnet-0

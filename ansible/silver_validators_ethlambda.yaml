@@ -1,0 +1,39 @@
+- hosts: silver
+  become: true
+  vars:
+    ethlambda_validator_datadir: /data/ethlambda-validator
+    validator_keys_sync_files:
+      - src: "{{ inventory_dir }}/files/validator_keys/{{ inventory_hostname }}/keys/"
+        dest: "{{ ethlambda_validator_datadir }}/keys/"
+      - src: "{{ inventory_dir }}/files/validator_keys/{{ inventory_hostname }}/secrets/"
+        dest: "{{ ethlambda_validator_datadir }}/secrets/"
+    ethlambda_enabled: false
+    ethlambda_validator_enabled: true
+    ethlambda_container_name: ethlambda-beacon-unused
+    ethlambda_validator_container_name: validator
+    ethlambda_container_image: "{{ default_ethereum_client_images.ethlambda }}"
+    ethlambda_beacon_endpoint: "http://beacon:{{ ethereum_node_cl_ports_http_beacon | default(5052) }}"
+    ethlambda_validator_fee_recipient: "{{ ethereum_node_cl_validator_fee_recipient }}"
+    ethlambda_container_pull: true
+    ethlambda_validator_container_networks:
+      - name: shared
+    ethlambda_validator_container_volumes:
+      - "{{ ethlambda_validator_datadir }}:/validator-data"
+      - "{{ eth_testnet_config_dir }}:/network-config:ro"
+      - "{{ pq_keys_host_dir }}:{{ pq_keys_container_dir }}:ro"
+    ethlambda_validator_container_command_extra_args:
+      - --graffiti={{ inventory_hostname }}
+      - --vrf-state-url={{ pq_vrf_state_path }}
+      - --xmss-cache-url={{ pq_xmss_cache_path }}
+  pre_tasks:
+    - name: Remove the lighthouse validator client
+      community.docker.docker_container:
+        name: validator
+        state: absent
+        force_kill: true
+      tags: [silver_validators]
+  roles:
+    - role: ethpandaops.general.validator_keys
+      tags: [silver_validators]
+    - role: ethpandaops.general.ethlambda
+      tags: [silver_validators]

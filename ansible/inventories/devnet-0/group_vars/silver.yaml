@@ -30,3 +30,9 @@ silver_container_command_extra_args:
 silver_config_extra: |
   chain_config.bootstrap_enrs = {{ ethereum_cl_bootnodes | to_json }}
 silver_container_pull: true
+
+ethereum_node_docker_watchtower_containers_list:
+  - execution
+  - beacon
+  - xatu-sentry
+  - external-block-builder
