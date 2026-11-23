@@ -40,6 +40,12 @@ powfaucet:
     - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-bootnode-1.srv.pq-devnet-0.ethpandaops.io"
       name: "bootnode-1"
       priority: 10
+    - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io"
+      name: "lighthouse-geth-observe-1"
+      priority: 5
+    - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io"
+      name: "prysm-geth-observe-1"
+      priority: 5
     - url: "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-ethlambda-geth-1.srv.pq-devnet-0.ethpandaops.io"
       name: "ethlambda-geth-1"
       priority: 5

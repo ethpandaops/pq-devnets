@@ -63,6 +63,9 @@ checkpointz:
         - name: lighthouse-geth-2
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io
           dataProvider: true
+        - name: lighthouse-geth-observe-1
+          address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+          dataProvider: true
         - name: lodestar-geth-1
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
           dataProvider: true
@@ -80,6 +83,9 @@ checkpointz:
           dataProvider: true
         - name: prysm-geth-2
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
+          dataProvider: true
+        - name: prysm-geth-observe-1
+          address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
           dataProvider: true
         - name: silver-geth-1
           address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io

@@ -95,6 +95,11 @@ forky:
           config:
             address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.pq-devnet-0.ethpandaops.io
             polling_interval: "12s"
+        - name: lighthouse-geth-observe-1
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+            polling_interval: "12s"
         - name: lodestar-geth-1
           type: "beacon_node"
           config:
@@ -109,6 +114,11 @@ forky:
           type: "beacon_node"
           config:
             address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-1.srv.pq-devnet-0.ethpandaops.io
+            polling_interval: "12s"
+        - name: prysm-geth-observe-1
+          type: "beacon_node"
+          config:
+            address: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
             polling_interval: "12s"
         - name: silver-geth-1
           type: "beacon_node"

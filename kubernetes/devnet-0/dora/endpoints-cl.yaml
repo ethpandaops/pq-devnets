@@ -31,6 +31,11 @@
   authGroup: pandaops
   priority: -1
   archive: true
+- url: https://bn-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+  name: lighthouse-geth-observe-1
+  authGroup: pandaops
+  priority: -1
+  archive: true
 - url: https://bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
   name: lodestar-geth-1
   authGroup: pandaops
@@ -53,6 +58,10 @@
   priority: -1
 - url: https://bn-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
   name: prysm-geth-2
+  authGroup: pandaops
+  priority: -1
+- url: https://bn-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+  name: prysm-geth-observe-1
   authGroup: pandaops
   priority: -1
 - url: https://bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io

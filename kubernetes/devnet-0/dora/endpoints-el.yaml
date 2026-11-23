@@ -43,6 +43,12 @@
   priority: -1
   archive: false
   engineSnooperUrl: http://rpc-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io:8961
+- url: https://rpc-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+  name: lighthouse-geth-observe-1
+  authGroup: pandaops
+  priority: -1
+  archive: false
+  engineSnooperUrl: http://rpc-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io:8961
 - url: https://rpc-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
   name: lodestar-geth-1
   authGroup: pandaops
@@ -79,6 +85,12 @@
   priority: -1
   archive: false
   engineSnooperUrl: http://rpc-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io:8961
+- url: https://rpc-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+  name: prysm-geth-observe-1
+  authGroup: pandaops
+  priority: -1
+  archive: false
+  engineSnooperUrl: http://rpc-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io:8961
 - url: https://rpc-silver-geth-1.srv.pq-devnet-0.ethpandaops.io
   name: silver-geth-1
   authGroup: pandaops

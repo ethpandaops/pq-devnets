@@ -36,8 +36,8 @@ variable "nodes" {
     { name = "nimbus-geth", count = 2, cloud = "digitalocean", validator_start = 6250, validator_end = 7500 },
     { name = "ethlambda-geth", count = 2, cloud = "digitalocean", validator_start = 7500, validator_end = 8750 },
     { name = "silver-geth", count = 2, cloud = "digitalocean", validator_start = 8750, validator_end = 10000 },
-    { name = "lighthouse-geth", count = 1, cloud = "digitalocean", supernode = true },
-    { name = "prysm-geth", count = 1, cloud = "digitalocean", supernode = true },
+    { name = "lighthouse-geth-observe", count = 1, cloud = "digitalocean", supernode = true },
+    { name = "prysm-geth-observe", count = 1, cloud = "digitalocean", supernode = true },
   ]
 
   validation {

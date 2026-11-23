@@ -33,6 +33,8 @@ forkmon:
     name: lighthouse-geth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: lighthouse-geth-2
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+    name: lighthouse-geth-observe-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: lodestar-geth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io
@@ -45,6 +47,8 @@ forkmon:
     name: prysm-geth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: prysm-geth-2
+  - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+    name: prysm-geth-observe-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-silver-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: silver-geth-1
   - addr: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@rpc-silver-geth-2.srv.pq-devnet-0.ethpandaops.io

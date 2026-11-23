@@ -62,6 +62,7 @@ teku_container_command_extra_args:
   - --logging=info
   - --Xlog-include-p2p-warnings-enabled
   - --metrics-block-timing-tracking-enabled
+  - --Xpq-leanvm-sidecar-binary=/usr/local/bin/leanvm-sidecar
   - >-
     --p2p-discovery-bootnodes={{
       (

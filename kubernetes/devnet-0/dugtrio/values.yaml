@@ -45,6 +45,8 @@ dugtrio:
     name: lighthouse-geth-1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: lighthouse-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+    name: lighthouse-geth-observe-1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: lodestar-geth-1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io
@@ -57,6 +59,8 @@ dugtrio:
     name: prysm-geth-1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: prysm-geth-2
+  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+    name: prysm-geth-observe-1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: silver-geth-1
   - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-2.srv.pq-devnet-0.ethpandaops.io
