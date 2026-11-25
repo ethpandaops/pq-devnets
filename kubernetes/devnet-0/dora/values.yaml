@@ -56,8 +56,6 @@ dora:
       value: "*"
     - name: FRONTEND_ENABLE_DAS_GUARDIAN_MASS_SCAN
       value: "true"
-    - name: INDEXER_ATTESTATION_ARRIVALS_ENABLED
-      value: "true"
     - name: XATU_ENABLED
       value: "true"
     - name: XATU_NETWORK_NAME
