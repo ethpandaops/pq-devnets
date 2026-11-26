@@ -25,6 +25,8 @@ silver_container_volumes:
   - "{{ silver_runtime_path }}:/runtime"
   - "{{ silver_auth_jwt_path }}:/execution-auth.jwt:ro"
   - "{{ eth_testnet_config_dir }}:/network-config:ro"
+silver_container_command:
+  - --config=/config/silver.toml
 silver_container_command_extra_args:
   - --network=/network-config
 silver_config_extra: |
