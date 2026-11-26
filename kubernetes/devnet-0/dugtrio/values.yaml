@@ -31,41 +31,41 @@ dugtrio:
     - "^/teku/v[0-9]+/admin/.*"
 
   endpoints:
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-bootnode-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-bootnode-1.srv.pq-devnet-0.ethpandaops.io
     name: bootnode-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: ethlambda-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: ethlambda-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: grandine-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: grandine-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: lighthouse-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: lighthouse-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
     name: lighthouse-geth-observe-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: lodestar-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: lodestar-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: nimbus-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: nimbus-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: prysm-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: prysm-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-observe-1.srv.pq-devnet-0.ethpandaops.io
     name: prysm-geth-observe-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: silver-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: silver-geth-2
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-teku-geth-1.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-teku-geth-1.srv.pq-devnet-0.ethpandaops.io
     name: teku-geth-1
-  - url: https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-teku-geth-2.srv.pq-devnet-0.ethpandaops.io
+  - url: https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-teku-geth-2.srv.pq-devnet-0.ethpandaops.io
     name: teku-geth-2
