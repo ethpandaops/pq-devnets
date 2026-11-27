@@ -50,7 +50,7 @@ ethereum_genesis_network_seed: "pq-devnet-1"
 ethereum_genesis_chain_id: "70{{ 9999999 | random(start=1000000, seed=ethereum_genesis_network_seed) }}"
 ethereum_genesis_fork_version_suffix: "{{ 999999 | random(start=100000, seed=ethereum_genesis_network_seed) }}"
 ethereum_genesis_generator_output_dir: "../network-configs/{{ network_iteration }}"
-ethereum_genesis_timestamp: 1795867200
+ethereum_genesis_timestamp: 1795787400
 ethereum_genesis_timedelay: 0
 shadowfork_height: 0
 ethereum_genesis_mnemonic: "{{ secret_genesis_mnemonic }}"
