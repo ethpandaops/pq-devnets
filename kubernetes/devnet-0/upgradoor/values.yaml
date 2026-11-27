@@ -30,16 +30,16 @@ upgradoor:
   # Queried in parallel; the chain most of them follow is used.
   beaconEndpoints:
     - "http://prysm-geth-001:5052"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-1.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-2.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-2.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-2.srv.pq-devnet-0.ethpandaops.io"
-    - "https://<path:/secrets/services/services.enc.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-1.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-silver-geth-1.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-1.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-1.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-2.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lodestar-geth-2.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-nimbus-geth-2.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-grandine-geth-2.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-lighthouse-geth-1.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-ethlambda-geth-2.srv.pq-devnet-0.ethpandaops.io"
+    - "https://<path:../../secrets.sops.yaml#ethereum | jsonPath {.testnets.pq-devnets.node_ingress.combined}>@bn-prysm-geth-1.srv.pq-devnet-0.ethpandaops.io"
   validatorRangesUrl: "https://config.pq-devnet-0.ethpandaops.io/api/v1/nodes/validator-ranges"
   # The UI includes the menu itself; its Content-Security-Policy admits the menu's data.
   extraArgs:
