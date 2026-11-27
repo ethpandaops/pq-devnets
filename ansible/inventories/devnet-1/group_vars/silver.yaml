@@ -53,4 +53,3 @@ silver_validator_container_command_extra_args:
   - --network=/network-config
   - --graffiti={{ inventory_hostname }}
   - --vrf-state-url={{ pq_vrf_state_path }}
-  - --xmss-cache-url={{ pq_xmss_cache_path }}
