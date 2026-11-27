@@ -28,14 +28,14 @@ variable "nodes" {
   description = "List of node definitions for the devnet"
   default = [
     { name = "bootnode", count = 1, cloud = "digitalocean" },
-    { name = "lighthouse-geth", count = 2, cloud = "digitalocean", validator_start = 0, validator_end = 1000 },
-    { name = "teku-geth", count = 2, cloud = "digitalocean", validator_start = 1000, validator_end = 2000 },
-    { name = "prysm-geth", count = 2, cloud = "digitalocean", validator_start = 2000, validator_end = 3000 },
-    { name = "lodestar-geth", count = 2, cloud = "digitalocean", validator_start = 3000, validator_end = 4000 },
-    { name = "grandine-geth", count = 2, cloud = "digitalocean", validator_start = 4000, validator_end = 5000 },
-    { name = "nimbus-geth", count = 2, cloud = "digitalocean", validator_start = 5000, validator_end = 6000 },
-    { name = "ethlambda-geth", count = 2, cloud = "digitalocean", validator_start = 6000, validator_end = 7000 },
-    { name = "silver-geth", count = 2, cloud = "digitalocean", validator_start = 7000, validator_end = 8000 },
+    { name = "lighthouse-geth", count = 3, cloud = "digitalocean", validator_start = 0, validator_end = 1500 },
+    { name = "teku-geth", count = 3, cloud = "digitalocean", validator_start = 1500, validator_end = 3000 },
+    { name = "prysm-geth", count = 3, cloud = "digitalocean", validator_start = 3000, validator_end = 4500 },
+    { name = "lodestar-geth", count = 3, cloud = "digitalocean", validator_start = 4500, validator_end = 6000 },
+    { name = "grandine-geth", count = 2, cloud = "digitalocean", validator_start = 6000, validator_end = 7000 },
+    { name = "nimbus-geth", count = 2, cloud = "digitalocean", validator_start = 7000, validator_end = 8000 },
+    { name = "ethlambda-geth", count = 2, cloud = "digitalocean", validator_start = 8000, validator_end = 9000 },
+    { name = "silver-geth", count = 2, cloud = "digitalocean", validator_start = 9000, validator_end = 10000 },
     { name = "lighthouse-geth-observe", count = 1, cloud = "digitalocean", supernode = true },
     { name = "prysm-geth-observe", count = 1, cloud = "digitalocean", supernode = true },
   ]
