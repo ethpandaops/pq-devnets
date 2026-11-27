@@ -1,0 +1,34 @@
+# role: ethpandaops.general.bootstrap
+silver_extra_github_users: []  # handles not yet in the coredevs registry
+bootstrap_default_user_authorized_keys_github_team_cl: >-
+  {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/silver?format=txt', errors='ignore') | default([], true) | select | list)
+     + silver_extra_github_users }}
+
+# role: ethpandaops.general.ethereum_node
+ethereum_node_cl: silver
+ethereum_node_cl_validator_enabled: false
+ethereum_node_external_builder_enabled: false
+
+# role: ethpandaops.general.silver
+silver_container_name: beacon
+silver_container_image: "{{ default_ethereum_client_images.silver }}"
+silver_container_env:
+  VIRTUAL_HOST: "{{ ethereum_node_beacon_hostname }}"
+  VIRTUAL_PORT: "{{ ethereum_node_cl_ports_http_beacon | string }}"
+  LETSENCRYPT_HOST: "{{ ethereum_node_beacon_hostname }}"
+  LOG_STDOUT: "1"
+  RUST_LOG: info
+  XDG_DATA_HOME: /runtime
+silver_container_volumes:
+  - "{{ silver_datadir }}:/data"
+  - "{{ silver_config_path }}:/config:ro"
+  - "{{ silver_runtime_path }}:/runtime"
+  - "{{ silver_auth_jwt_path }}:/execution-auth.jwt:ro"
+  - "{{ eth_testnet_config_dir }}:/network-config:ro"
+silver_container_command:
+  - --config=/config/silver.toml
+silver_container_command_extra_args:
+  - --network=/network-config
+silver_config_extra: |
+  chain_config.bootstrap_enrs = {{ ethereum_cl_bootnodes | to_json }}
+silver_container_pull: true
