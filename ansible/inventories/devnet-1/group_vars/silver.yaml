@@ -41,6 +41,10 @@ silver_config_extra: |
 silver_container_pull: true
 silver_validator_container_name: validator
 silver_validator_datadir: /data/silver-validator
+silver_validator_container_env:
+  LOG_STDOUT: "1"
+  RUST_LOG: info
+  XDG_DATA_HOME: /validator-data/runtime
 silver_validator_container_volumes:
   - "{{ silver_validator_datadir }}:/validator-data"
   - "{{ eth_testnet_config_dir }}:/network-config:ro"
