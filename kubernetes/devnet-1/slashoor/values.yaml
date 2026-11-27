@@ -6,7 +6,7 @@ slashoor:
 
   image:
     repository: ethpandaops/slashoor
-    tag: latest
+    tag: pq
     pullPolicy: Always
   resources:
     requests:
@@ -52,7 +52,7 @@ slashoor:
 
     submitter:
       enabled: true
-      dry_run: true
+      dry_run: false
 
     proposer:
       enabled: true
