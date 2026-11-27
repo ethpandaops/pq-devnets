@@ -52,7 +52,7 @@ teku_container_command_extra_simple_args:
   - --metrics-block-timing-tracking-enabled
   - --ignore-weak-subjectivity-period-enabled
   - --rest-api-docs-enabled
-  - --Xpq-leanvm-sidecar-binary=/usr/local/bin/leanvm-sidecar
+  - --Xpq-leanvm-enabled
 teku_validator_container_volumes:
   - "{{ teku_validator_datadir }}:/validator-data"
   - "{{ pq_keys_host_dir }}:{{ pq_keys_container_dir }}:ro"
