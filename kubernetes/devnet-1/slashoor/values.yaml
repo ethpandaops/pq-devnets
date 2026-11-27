@@ -52,7 +52,7 @@ slashoor:
 
     submitter:
       enabled: true
-      dry_run: false
+      dry_run: true
 
     proposer:
       enabled: true
