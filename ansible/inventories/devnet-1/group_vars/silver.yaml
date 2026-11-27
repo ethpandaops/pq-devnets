@@ -4,9 +4,16 @@ bootstrap_default_user_authorized_keys_github_team_cl: >-
   {{ (query('ethpandaops.general.url_cached', coredevs_api_url ~ '/api/v1/users/silver?format=txt', errors='ignore') | default([], true) | select | list)
      + silver_extra_github_users }}
 
+# role: validator_keys
+validator_keys_sync_files:
+  - src: "{{ inventory_dir }}/files/validator_keys/{{ inventory_hostname }}/keys/"
+    dest: "{{ silver_validator_datadir }}/keys/"
+  - src: "{{ inventory_dir }}/files/validator_keys/{{ inventory_hostname }}/secrets/"
+    dest: "{{ silver_validator_datadir }}/secrets/"
+
 # role: ethpandaops.general.ethereum_node
 ethereum_node_cl: silver
-ethereum_node_cl_validator_enabled: false
+ethereum_node_cl_validator_enabled: true
 ethereum_node_external_builder_enabled: false
 
 # role: ethpandaops.general.silver
@@ -32,3 +39,14 @@ silver_container_command_extra_args:
 silver_config_extra: |
   chain_config.bootstrap_enrs = {{ ethereum_cl_bootnodes | to_json }}
 silver_container_pull: true
+silver_validator_container_name: validator
+silver_validator_datadir: /data/silver-validator
+silver_validator_container_volumes:
+  - "{{ silver_validator_datadir }}:/validator-data"
+  - "{{ eth_testnet_config_dir }}:/network-config:ro"
+  - "{{ pq_keys_host_dir }}:{{ pq_keys_container_dir }}:ro"
+silver_validator_container_command_extra_args:
+  - --network=/network-config
+  - --graffiti={{ inventory_hostname }}
+  - --vrf-state-url={{ pq_vrf_state_path }}
+  - --xmss-cache-url={{ pq_xmss_cache_path }}
