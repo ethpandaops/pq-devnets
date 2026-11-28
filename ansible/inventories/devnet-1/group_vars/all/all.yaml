@@ -121,7 +121,18 @@ eth_inventory_web_segments_json: >-
   {%- for host, kr in (ethereum_genesis_validator_keyranges | default({})).items() -%}
   {%-   set _ = segs.append({'name': hostvars[host].validator_display_name | default(host), 'start': kr.start | int, 'end': (kr.end | int) - 1}) -%}
   {%- endfor -%}
+  {%- for seg in (eth_inventory_web_extra_segments | default([])) -%}
+  {%-   set _ = segs.append({'name': seg.name, 'start': seg.start | int, 'end': seg.end | int}) -%}
+  {%- endfor -%}
   {{ segs | to_json }}
+
+# Community / external operators. Display names only (Dora, assertoor,
+# beacon-metrics-gazer). Not used for key generation.
+# start/end are inclusive validator indices.
+eth_inventory_web_extra_segments:
+  - name: "xOne.Sh"
+    start: 10000
+    end: 10999
 
 # role: ethpandaops.general.bootstrap
 bootstrap_default_user_authorized_keys_plain:
